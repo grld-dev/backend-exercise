@@ -9,6 +9,10 @@ defmodule RemoteBackendExerciseWeb.Router do
     pipe_through :api
   end
 
+  scope "/", RemoteBackendExerciseWeb do
+    get "/", RootController, :index
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
