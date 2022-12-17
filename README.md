@@ -1,4 +1,4 @@
-# RemoteBackendExercise
+# Backend code exercise
 
 To start your Phoenix server:
 
