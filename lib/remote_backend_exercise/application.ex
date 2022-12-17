@@ -15,7 +15,8 @@ defmodule RemoteBackendExercise.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: RemoteBackendExercise.PubSub},
       # Start the Endpoint (http/https)
-      RemoteBackendExerciseWeb.Endpoint
+      RemoteBackendExerciseWeb.Endpoint,
+      {RemoteBackendExercise.PointsWorker, name: RemoteBackendExercise.PointsWorker}
       # Start a worker by calling: RemoteBackendExercise.Worker.start_link(arg)
       # {RemoteBackendExercise.Worker, arg}
     ]
