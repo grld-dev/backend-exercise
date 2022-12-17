@@ -11,7 +11,7 @@ defmodule RemoteBackendExercise.PointsWorker do
   end
 
   def init(_opts) do
-    schedule_work()
+    send(self(), :work)
 
     {:ok,
      %{
