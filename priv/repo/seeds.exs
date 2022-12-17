@@ -1,11 +1,11 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     RemoteBackendExercise.Repo.insert!(%RemoteBackendExercise.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias RemoteBackendExercise.Repo
+alias RemoteBackendExercise.Users.User
+
+now = DateTime.utc_now()
+
+%{points: 0, inserted_at: now, updated_at: now}
+|> List.duplicate(1_000_000)
+|> Enum.chunk_every(Integer.floor_div(65_535, 3))
+|> Enum.each(fn rows ->
+  Repo.insert_all(User, rows)
+end)
